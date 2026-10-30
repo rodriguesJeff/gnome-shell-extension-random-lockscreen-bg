@@ -15,6 +15,12 @@
     <value nick='horizontal' value='2'/>
   </enum>
 
+  <enum id='org.gnome.shell.extensions.random-lockscreen-bg.SourceMode'>
+    <value nick='single' value='0'/>
+    <value nick='folder' value='1'/>
+    <value nick='unsplash' value='2'/>
+  </enum>
+
   <schema id="org.gnome.shell.extensions.random-lockscreen-bg" path="/org/gnome/shell/extensions/random-lockscreen-bg/">
     <key name="switch" type="b">
       <default>true</default>
@@ -95,6 +101,45 @@
       <default>0</default>
       <summary>Blur radius</summary>
       <description>Value is effective between 0 to 100.</description>
+    </key>
+    <key name="source-mode" enum="org.gnome.shell.extensions.random-lockscreen-bg.SourceMode">
+      <default>'single'</default>
+      <summary>Where the lock screen picture comes from</summary>
+      <description>“single” uses single-picture, “folder” picks a random image from folder-path, “unsplash” downloads random photos.</description>
+    </key>
+    <key name="single-picture" type="s">
+      <default>''</default>
+      <summary>Picture used in “single” mode</summary>
+    </key>
+    <key name="folder-path" type="s">
+      <default>''</default>
+      <summary>Folder to pick random pictures from</summary>
+    </key>
+    <key name="folder-recursive" type="b">
+      <default>false</default>
+      <summary>Also look into subfolders</summary>
+    </key>
+    <key name="unsplash-url" type="s">
+      <default>''</default>
+      <summary>Unsplash link or search terms</summary>
+      <description>A collection, search, user or topic link from unsplash.com, plain search terms, or any direct image URL.</description>
+    </key>
+    <key name="unsplash-access-key" type="s">
+      <default>''</default>
+      <summary>Unsplash API access key</summary>
+    </key>
+    <key name="cache-size" type="i">
+      <range min="1" max="100"/>
+      <default>10</default>
+      <summary>How many downloaded pictures to keep on disk</summary>
+    </key>
+    <key name="request-next" type="i">
+      <default>0</default>
+      <summary>Bumped by the preferences window to ask for a new picture now</summary>
+    </key>
+    <key name="last-error" type="s">
+      <default>''</default>
+      <summary>Last error while fetching a picture</summary>
     </key>
   </schema>
 </schemalist>

@@ -11,6 +11,7 @@ import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/ex
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Layout from 'resource:///org/gnome/shell/ui/layout.js';
 import * as BackgroundNew from './backgroundNew.js';
+import {ImageProvider} from './imageProvider.js';
 import { UnlockDialog } from 'resource:///org/gnome/shell/ui/unlockDialog.js';
 
 const CROSSFADE_TIME = 300;
@@ -154,7 +155,16 @@ export default class RandomLockscreenBackgroundExtension extends Extension {
 
     enable() {
         dir = this.dir;
-        this.background = new DialogBackground(this.getSettings());
+        const settings = this.getSettings();
+        this.background = new DialogBackground(settings);
+
+        // Pick a new picture every time the screen gets unlocked, ready for the next lock.
+        this._imageProvider = new ImageProvider(settings, this.uuid);
+        this._lockedChangedId = Main.screenShield?.connect('locked-changed', () => {
+            if (!Main.screenShield.locked)
+                this._imageProvider.next();
+        }) ?? 0;
+        this._imageProvider.next();
 
         if (Main.layoutManager._startingUp)
             this._startupPreparedId = Main.layoutManager.connect('startup-complete', () => this.enableMe());
@@ -167,6 +177,13 @@ export default class RandomLockscreenBackgroundExtension extends Extension {
         this.background.disable();
         this.background = null;
         dir = null;
+
+        if (this._lockedChangedId) {
+            Main.screenShield.disconnect(this._lockedChangedId);
+            this._lockedChangedId = 0;
+        }
+        this._imageProvider.destroy();
+        this._imageProvider = null;
 
         if (this._startupPreparedId) {
             Main.layoutManager.disconnect(this._startupPreparedId);
