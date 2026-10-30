@@ -34,8 +34,8 @@ This fork adds the picture sources.
 ## Installation
 
 ```bash
-git clone https://github.com/rodriguesJeff/gnome-shell-extension-unlockDialogBackground.git
-cd gnome-shell-extension-unlockDialogBackground
+git clone https://github.com/rodriguesJeff/gnome-shell-extension-random-lockscreen-bg.git
+cd gnome-shell-extension-random-lockscreen-bg
 ./install.sh
 ```
 
