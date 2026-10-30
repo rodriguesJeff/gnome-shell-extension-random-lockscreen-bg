@@ -1,11 +1,11 @@
+UUID = random-lockscreen-bg@jeff
 
 schemas:
-	glib-compile-schemas unlockDialogBackground@sun.wxg@gmail.com/schemas/
+	glib-compile-schemas $(UUID)/schemas/
 
 submit:
-	cd unlockDialogBackground@sun.wxg@gmail.com/ && zip -r ~/unlockDialogBackground.zip *
+	cd $(UUID)/ && zip -r ~/$(UUID).zip * -x schemas/gschemas.compiled
 
 install: schemas
-	rm -rf ~/.local/share/gnome-shell/extensions/unlockDialogBackground@sun.wxg@gmail.com
-	cp -r unlockDialogBackground@sun.wxg@gmail.com ~/.local/share/gnome-shell/extensions/
-
+	rm -rf ~/.local/share/gnome-shell/extensions/$(UUID)
+	cp -r $(UUID) ~/.local/share/gnome-shell/extensions/

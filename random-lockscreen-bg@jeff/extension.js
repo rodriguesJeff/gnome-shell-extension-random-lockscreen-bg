@@ -145,7 +145,7 @@ class DialogBackground {
     }
 }
 
-export default class unlockDialogBackgroundExtension extends Extension {
+export default class RandomLockscreenBackgroundExtension extends Extension {
     constructor(metadata) {
         super(metadata);
 

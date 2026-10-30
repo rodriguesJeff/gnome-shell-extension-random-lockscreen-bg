@@ -1,6 +1,6 @@
-<schemalist gettext-domain="gnome-shell-extensions">
+<schemalist gettext-domain="random-lockscreen-bg">
 
-  <enum id='org.gnome.shell.extensions.unlockDialogBackground.GDesktopBackgroundStyle'>
+  <enum id='org.gnome.shell.extensions.random-lockscreen-bg.GDesktopBackgroundStyle'>
     <value nick='none' value='0'/>
     <value nick='wallpaper' value='1'/>
     <value nick='centered' value='2'/>
@@ -9,13 +9,13 @@
     <value nick='zoom' value='5'/>
     <value nick='spanned' value='6'/>
   </enum>
-  <enum id='org.gnome.shell.extensions.unlockDialogBackground.GDesktopBackgroundShading'>
+  <enum id='org.gnome.shell.extensions.random-lockscreen-bg.GDesktopBackgroundShading'>
     <value nick='solid' value='0'/>
     <value nick='vertical' value='1'/>
     <value nick='horizontal' value='2'/>
   </enum>
 
-  <schema id="org.gnome.shell.extensions.unlockDialogBackground" path="/org/gnome/shell/extensions/unlock-dialog-background/">
+  <schema id="org.gnome.shell.extensions.random-lockscreen-bg" path="/org/gnome/shell/extensions/random-lockscreen-bg/">
     <key name="switch" type="b">
       <default>true</default>
       <summary>Key to switch unlock dialog background extensions</summary>
@@ -38,7 +38,7 @@
         local (file://) URIs.
       </description>
     </key>
-    <key name="picture-options" enum="org.gnome.shell.extensions.unlockDialogBackground.GDesktopBackgroundStyle">
+    <key name="picture-options" enum="org.gnome.shell.extensions.random-lockscreen-bg.GDesktopBackgroundStyle">
       <default>'zoom'</default>
       <summary>Picture Options</summary>
       <description>
@@ -69,7 +69,7 @@
         Right or Bottom color when drawing gradients, not used for solid color.
       </description>
     </key>
-    <key name="color-shading-type" enum="org.gnome.shell.extensions.unlockDialogBackground.GDesktopBackgroundShading">
+    <key name="color-shading-type" enum="org.gnome.shell.extensions.random-lockscreen-bg.GDesktopBackgroundShading">
       <default>'solid'</default>
       <summary>Color Shading Type</summary>
       <description>

@@ -105,7 +105,7 @@ import * as Params from 'resource:///org/gnome/shell/misc/params.js';
 
 const DEFAULT_BACKGROUND_COLOR = new Cogl.Color({red: 40, green: 40, blue: 40, alpha: 255});
 
-const BACKGROUND_SCHEMA = 'org.gnome.shell.extensions.unlockDialogBackground'
+const BACKGROUND_SCHEMA = 'org.gnome.shell.extensions.random-lockscreen-bg';
 //const BACKGROUND_SCHEMA = 'org.gnome.desktop.background';
 const PRIMARY_COLOR_KEY = 'primary-color';
 const SECONDARY_COLOR_KEY = 'secondary-color';

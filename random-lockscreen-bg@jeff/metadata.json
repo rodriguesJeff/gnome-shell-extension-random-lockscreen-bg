@@ -1,0 +1,14 @@
+{
+  "uuid": "random-lockscreen-bg@jeff",
+  "settings-schema": "org.gnome.shell.extensions.random-lockscreen-bg",
+  "gettext-domain": "random-lockscreen-bg",
+  "name": "Random Lock Screen Background",
+  "description": "Lock screen background with blur, using a fixed picture, a random picture from a folder, or random photos from Unsplash. Based on 'Lock screen background' by sun.wxg@gmail.com.",
+  "shell-version": [
+    "51"
+  ],
+  "session-modes": ["user", "unlock-dialog"],
+  "original-authors": "sun.wxg@gmail.com",
+  "url": "https://github.com/rodriguesJeff/gnome-shell-extension-unlockDialogBackground",
+  "version": 1
+}
