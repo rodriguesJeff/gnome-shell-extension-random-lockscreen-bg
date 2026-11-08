@@ -10,7 +10,7 @@ This is a fork of [Lock screen background](https://github.com/sunwxg/gnome-shell
 by Xiaoguang Wang (sun.wxg). The background and blur code comes from that extension.
 This fork adds the picture sources.
 
-![Blurred lock screen background](screenshot.gif)
+![Blurred lock screen background](screenshot.png)
 
 ## Features
 
