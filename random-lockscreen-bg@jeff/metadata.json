@@ -7,7 +7,10 @@
   "shell-version": [
     "51"
   ],
-  "session-modes": ["user", "unlock-dialog"],
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ],
   "original-authors": "sun.wxg@gmail.com",
   "url": "https://github.com/rodriguesJeff/gnome-shell-extension-random-lockscreen-bg",
   "version": 1

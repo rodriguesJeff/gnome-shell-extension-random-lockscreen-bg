@@ -19,10 +19,22 @@ const DEFAULT_RADIUS = 30;
 const DEFAULT_BRIGHTNESS = 0.65;
 const KEY_RADIUS = 'radius';
 const KEY_BRIGHTNESS = 'brightness';
+const KEY_UNSPLASH_TOPIC = 'unsplash-topic';
+
+const UNSPLASH_TOPICS = {
+    wallpapers: 'bo8jQKTaE0Y',
+    nature: '6sMVjTLSkeQ',
+    animals: 'Jpg6Kidl-Hk',
+    architecture: 'M8jVbLbTRws',
+    winter: 'qtLUDvcrXVc',
+    travel: 'Fzo3zuOHN6w',
+};
 
 let dir = null;
 let radius;
 let brightness;
+let unsplashTopic;
+let unsplashTopicID;
 
 function _createBackgroundNew(monitorIndex) {
     let monitor = Main.layoutManager.monitors[monitorIndex];
@@ -118,6 +130,10 @@ class DialogBackground {
         brightness = this.settings.get_double(KEY_BRIGHTNESS);
         this.brightnessID = this.settings.connect("changed::" + KEY_BRIGHTNESS, () => {
             brightness = this.settings.get_double(KEY_BRIGHTNESS);
+        })
+        unsplashTopic = this.settings.get_string(KEY_UNSPLASH_TOPIC);
+        this.unsplashTopicID = this.settings.connect("changed::" + KEY_UNSPLASH_TOPIC, () => {
+            unsplashTopic = this.settings.get_string(KEY_UNSPLASH_TOPIC);
         })
     }
 

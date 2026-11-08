@@ -137,6 +137,11 @@
       <default>0</default>
       <summary>Bumped by the preferences window to ask for a new picture now</summary>
     </key>
+    <key name="unsplash-topic" type="s">
+      <default>""</default>
+      <summary>Unsplash topic filter</summary>
+      <description>A topic name (wallpapers, nature, animals, architecture, winter, travel) or a custom topic ID to filter random photos from Unsplash.</description>
+    </key>
     <key name="last-error" type="s">
       <default>''</default>
       <summary>Last error while fetching a picture</summary>

@@ -15,6 +15,16 @@ const UNSPLASH_API = 'https://api.unsplash.com';
 const FALLBACK_URL = 'https://picsum.photos/%W/%H';
 const USER_AGENT = 'random-lockscreen-bg GNOME Shell extension';
 
+// Predefined topic IDs for Unsplash (permanent topics)
+const UNSPLASH_TOPIC_IDS = {
+    wallpapers: 'bo8jQKTaE0Y',
+    nature: '6sMVjTLSkeQ',
+    animals: 'Jpg6Kidl-Hk',
+    architecture: 'M8jVbLbTRws',
+    winter: 'qtLUDvcrXVc',
+    travel: 'Fzo3zuOHN6w',
+};
+
 Gio._promisify(Gio.File.prototype, 'enumerate_children_async');
 Gio._promisify(Gio.FileEnumerator.prototype, 'next_files_async');
 Gio._promisify(Gio.File.prototype, 'replace_contents_bytes_async', 'replace_contents_finish');
@@ -208,6 +218,10 @@ export class ImageProvider {
         const target = parseUnsplashInput(this._settings.get_string('unsplash-url'));
         const accessKey = this._settings.get_string('unsplash-access-key').trim();
 
+        // Get the selected topic from settings (predefined ID or custom)
+        const topicId = this._settings.get_string('unsplash-topic').trim();
+        const topicParam = topicId ? {topics: topicId} : {};
+
         let imageUrl, name;
         if (target.kind === 'direct') {
             imageUrl = target.url;
@@ -215,6 +229,7 @@ export class ImageProvider {
         } else if (accessKey) {
             const photo = await this._getJson(this._apiUrl('/photos/random', {
                 ...target.params,
+                ...topicParam,
                 orientation: 'landscape',
                 content_filter: 'high',
             }), accessKey);
